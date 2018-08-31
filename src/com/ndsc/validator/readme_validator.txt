@@ -109,7 +109,7 @@
                 params.put("DIGIT_COMPARE",map);
 
                 try {
-                    ValidatorResult result = ValidatorUtils.checkErrorReturnAll(data,params);
+                    ValidatorResult result = ValidatorUtils.checkError(data,params);
                     System.out.println(result);
                 } catch (Exception e) {
                     e.printStackTrace();
