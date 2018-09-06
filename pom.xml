@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.michael</groupId>
-  <artifactId>bigdesk</artifactId>
+  <artifactId>credit-valid</artifactId>
   <version>1.0.0</version>
 
-  <name>bigdesk</name>
+  <name>credit-valid</name>
   <url>http://www.example.com</url>
 
   <properties>
