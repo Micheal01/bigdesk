@@ -36,24 +36,24 @@ public class DigitCompareValiator implements IValidator {
         //获取参数
         Object p_data = param.get("p_data");
         if (MyUtil.IsEmpty(p_data)) {
-            throw new InvalidParameterException("比较的值不能为空或key不是【p_data】!");
+            return ValidatorResult.exception("比较的值不能为空!");
         }
 
         Object p_role = param.get("role");
         if (MyUtil.IsEmpty(p_role)) {
-            throw new InvalidParameterException("比较关系不能为空或key不是【role】!");
+            return ValidatorResult.exception("比较关系不能为空!");
         }
 
         Double double_p_data=MyUtil.getDouble(p_data);
         if(double_p_data==null)
         {
-            throw new InvalidParameterException("比较的值【"+p_data+"】类型不对，必须是数字类型!");
+            return ValidatorResult.exception("比较的值【"+p_data+"】类型不对，必须是数字类型!");
         }
 
         Double double_data=MyUtil.getDouble(data);
         if(double_data==null)
         {
-            throw new InvalidParameterException("参数值【"+data+"】类型不对，必须是数字类型!");
+            return ValidatorResult.exception("参数值【"+data+"】类型不对，必须是数字类型!");
         }
         //规则
         String role=p_role.toString();
@@ -90,7 +90,7 @@ public class DigitCompareValiator implements IValidator {
                 }
                 break;
             default:
-                throw new InvalidParameterException("参数值规则【"+role+"】类型不对，必须是>,<,>=,<=,=");
+                return ValidatorResult.exception("参数值规则【"+role+"】类型不对，必须是>,<,>=,<=,=");
         }
         return ValidatorResult.success();
 

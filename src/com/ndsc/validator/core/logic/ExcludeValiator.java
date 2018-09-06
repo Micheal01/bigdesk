@@ -39,10 +39,10 @@ public class ExcludeValiator implements IValidator {
         Object end=param.get("end");
 
         if (MyUtil.IsEmpty(begin)) {
-            throw new InvalidParameterException("开始值不能为空或key值不是【begin】!");
+            return ValidatorResult.exception("开始值不能为空!");
         }
         if (MyUtil.IsEmpty(end)) {
-            throw new InvalidParameterException("结束值不能为空或key值不是【end】!");
+            return ValidatorResult.exception("结束值不能为空!");
         }
 
         //直接判断是不是数字，不是数字就判断是不是时间
@@ -52,13 +52,13 @@ public class ExcludeValiator implements IValidator {
             Double double_end=MyUtil.getDouble(end);
             if(double_end==null)
             {
-                throw  new Exception("参数开始值是数字，结束值却非数字，必须一致！");
+                return ValidatorResult.exception("参数开始值是数字，结束值却非数字，必须一致！");
             }
             else
             {
                 if(double_begin>double_end)
                 {
-                    throw  new Exception("参数开始值不能大于结束值！");
+                    return ValidatorResult.exception("参数开始值不能大于结束值！");
                 }
                 else
                 {
@@ -84,13 +84,13 @@ public class ExcludeValiator implements IValidator {
                 Date date_end=MyUtil.getDate(end);
                 if(date_end==null)
                 {
-                    throw  new Exception("参数开始值是日期格式，结束值却非日期格式，必须一致！");
+                    return ValidatorResult.exception("参数开始值是日期格式，结束值却非日期格式，必须一致！");
                 }
                 else
                 {
                     if(date_begin.compareTo(date_end)>0)
                     {
-                        throw  new Exception("参数开始值不能大于结束值！");
+                        return ValidatorResult.exception("参数开始值不能大于结束值！");
                     }
                     else
                     {
@@ -108,7 +108,7 @@ public class ExcludeValiator implements IValidator {
            }
            else
            {
-               throw new Exception("暂时只支持时间和数字范围的排除性校验！");
+               return ValidatorResult.exception("暂时只支持时间和数字范围的排除性校验！");
            }
         }
         return ValidatorResult.success();

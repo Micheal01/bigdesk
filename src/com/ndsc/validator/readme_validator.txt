@@ -26,10 +26,8 @@
     public  static ArrayList<ValidatorResult> checkErrorReturnAll(Object data,
                                                  Map<String,Map<String,Object>> roleAndParams) throws Exception {
 	}												 
-									  
-									  
 
-	========================================	
+	========================================
 	配置项说明（括号内的是对应的配置项）
 
 											

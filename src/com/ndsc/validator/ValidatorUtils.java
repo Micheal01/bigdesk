@@ -37,7 +37,7 @@ public class ValidatorUtils {
                 throw new InvalidParameterException("找不到对应的规则 【"+ next.getKey() +"】！");
             }
             ValidatorResult result=validator.validator(data, next.getValue());
-            if(result.getCode()==ResultCode.失败)
+            if(result.getCode()==ResultCode.失败||result.getCode()==ResultCode.异常)
             {
                 //出现报错立即返回
                 return  result;
@@ -69,7 +69,7 @@ public class ValidatorUtils {
                 throw new InvalidParameterException("找不到对应的规则 【"+ next.getKey() +"】！");
             }
             ValidatorResult result=validator.validator(data, next.getValue());
-            if(result.getCode()==ResultCode.失败)
+            if(result.getCode()==ResultCode.失败||result.getCode()==ResultCode.异常)
             {
                 list.add(result);
             }

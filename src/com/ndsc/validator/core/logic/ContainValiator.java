@@ -33,7 +33,7 @@ public class ContainValiator implements IValidator {
         Object par=param.get("p_data");
         if(MyUtil.IsEmpty(par))
         {
-            throw new Exception("参数不能为空或key值不是【p_data】!");
+            return ValidatorResult.exception("参数不能为空!");
         }
         Object[] params=null;
         try {
@@ -42,7 +42,7 @@ public class ContainValiator implements IValidator {
         catch (Exception e)
         {
             //转换失败说明数组就一个值
-            params=new Object[]{data};
+            params=new Object[]{par};
         }
 
         for (int i = 0; i < params.length; i++) {

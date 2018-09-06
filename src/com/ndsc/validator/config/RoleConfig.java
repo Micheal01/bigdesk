@@ -75,7 +75,7 @@ public class RoleConfig {
         ROLE_CONIG.put("BUSINESS_CODE",BUSINESS_CODE_VALIATOR);
         //纳税人识别号校验
         ROLE_CONIG.put("TAX",TAX_VALIATOR);
-        //纳税人识别号校验
+        //只能输入中文校验
         ROLE_CONIG.put("CHINESE",CHINESE_VALIATOR);
 
         //3.逻辑性校验

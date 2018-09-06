@@ -6,12 +6,23 @@ package com.ndsc.validator;
  * @since 2018-6-4
  */
 public class ValidatorResult {
-    private ResultCode code;
-    private String message;
+    private ResultCode code; //状态
+    private String message; //返回内容
+    private String exceptionMsg; //异常内容
 
-    public ValidatorResult(ResultCode code, String message) {
+    public String getExceptionMsg() {
+        return exceptionMsg;
+    }
+
+    public void setExceptionMsg(String exceptionMsg) {
+        this.exceptionMsg = exceptionMsg;
+    }
+
+
+    public ValidatorResult(ResultCode code, String message,String exceptionMsg) {
         this.code = code;
         this.message = message;
+        this.exceptionMsg =exceptionMsg;
     }
 
     public ResultCode getCode() {
@@ -32,19 +43,25 @@ public class ValidatorResult {
 
     public  static ValidatorResult success()
     {
-        return new ValidatorResult(ResultCode.成功,"");
+        return new ValidatorResult(ResultCode.成功,"","");
     }
 
     public static ValidatorResult fail(String data)
     {
-        return new ValidatorResult(ResultCode.失败,data);
+        return new ValidatorResult(ResultCode.失败,data,"");
+    }
+
+    public static ValidatorResult exception(String errorMsg)
+    {
+        return new ValidatorResult(ResultCode.异常,"",errorMsg);
     }
 
     @Override
     public String toString() {
         return "ValidatorResult{" +
-                "code=" + code.name() +
+                "code=" + code +
                 ", message='" + message + '\'' +
+                ", exceptionMsg='" + exceptionMsg + '\'' +
                 '}';
     }
 }

@@ -39,7 +39,7 @@ public class IncludeValiator implements IValidator {
         Object p_data=param.get("p_data");
 
         if (MyUtil.IsEmpty(p_data)) {
-            throw new InvalidParameterException("开始值不能为空或key值不是【begin】!");
+            return ValidatorResult.exception("开始值不能为空!");
         }
         //校验规则
         String pattern =p_data.toString();

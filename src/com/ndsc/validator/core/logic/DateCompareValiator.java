@@ -31,7 +31,7 @@ public class DateCompareValiator implements IValidator {
         //获取参数
         Object endDate = param.get("p_data");
         if (MyUtil.IsEmpty(endDate)) {
-            throw new InvalidParameterException("结束时间不能为空或key值不是【p_data】!");
+            return ValidatorResult.exception("结束时间不能为空!");
         }
         if (endDate instanceof Date||
                 endDate instanceof java.sql.Date)
@@ -49,7 +49,7 @@ public class DateCompareValiator implements IValidator {
 
             }catch (Exception e)
             {
-                throw  new Exception("参数异常，结束时间不是日期格式，传入的值为【"+endDate.toString()+"】");
+                return ValidatorResult.exception("参数异常，结束时间不是日期格式，传入的值为【"+endDate.toString()+"】");
             }
             ValidatorResult result = compareEndDate(data, eDate);
             return result;
@@ -64,7 +64,7 @@ public class DateCompareValiator implements IValidator {
         }
         else
         {
-            throw new InvalidParameterException("结束时间参数类型错误!");
+            return ValidatorResult.exception("结束时间参数类型错误!");
         }
 
     }
@@ -92,7 +92,7 @@ public class DateCompareValiator implements IValidator {
             }
             catch (Exception e)
             {
-                throw new InvalidParameterException("参数异常，开始时间不是日期格式，传入的值为【"+beginData.toString()+"】");
+                return ValidatorResult.exception("参数异常，开始时间不是日期格式，传入的值为【"+beginData.toString()+"】");
             }
         }
         else if(beginData instanceof  Timestamp)
@@ -106,7 +106,7 @@ public class DateCompareValiator implements IValidator {
         }
         else
         {
-            throw new InvalidParameterException("结束时间参数类型错误!");
+            return ValidatorResult.exception("结束时间参数类型错误!");
         }
         return  ValidatorResult.success();
     }

@@ -38,22 +38,22 @@ public class LengthValiator implements IValidator {
         Object end=param.get("end");
 
         if (MyUtil.IsEmpty(begin)) {
-            throw new InvalidParameterException("开始值不能为空或key值不是【begin】!");
+            return ValidatorResult.exception("开始值不能为空!");
         }
         if (MyUtil.IsEmpty(end)) {
-            throw new InvalidParameterException("结束值不能为空或key值不是【end】!");
+            return ValidatorResult.exception("结束值不能为空!");
         }
 
         Double double_begin=MyUtil.getDouble(begin);
         if(double_begin==null)
         {
-            throw new InvalidParameterException("参数异常，开始值必须是数字，你传入的是【"+begin+"】!");
+            return ValidatorResult.exception("参数异常，开始值必须是数字，你传入的是【"+begin+"】!");
         }
 
         Double double_end=MyUtil.getDouble(end);
         if(double_end==null)
         {
-            throw new InvalidParameterException("参数异常，结束值必须是数字，你传入的是【"+end+"】!");
+            return ValidatorResult.exception("参数异常，结束值必须是数字，你传入的是【"+end+"】!");
         }
         if(data instanceof  String)
         {
@@ -65,7 +65,7 @@ public class LengthValiator implements IValidator {
         }
         else
         {
-            throw new InvalidParameterException("参数异常，传入值必须是字符串!");
+            return ValidatorResult.exception("参数异常，传入值必须是字符串!");
         }
 
         return ValidatorResult.success();

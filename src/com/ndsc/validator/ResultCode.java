@@ -7,7 +7,10 @@ package com.ndsc.validator;
  */
 public enum  ResultCode {
     成功(200),
-    失败(0);
+
+    失败(0),
+
+    异常(500);
 
     public final  int flag;
     ResultCode(int flag)
