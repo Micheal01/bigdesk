@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 逻辑性校验:必须包括关键字校验，例如处罚文号必须包括 罚（XXXX）号
+ * 逻辑性校验:必须包括关键字校验，例如处罚文号必须包括 罚****号
  * @author Michael
  * @since 2018-5-25
  */
@@ -39,7 +39,7 @@ public class IncludeValiator implements IValidator {
         Object p_data=param.get("p_data");
 
         if (MyUtil.IsEmpty(p_data)) {
-            return ValidatorResult.exception("开始值不能为空!");
+            return ValidatorResult.exception("参数不能为空!");
         }
         //校验规则
         String pattern =p_data.toString();

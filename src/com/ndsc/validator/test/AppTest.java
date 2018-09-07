@@ -17,13 +17,14 @@ public class AppTest {
 
     public static void main(String[] args) {
         //测试数值比较，此值不能大于或者小于，输入的前一值(DIGIT_COMPARE)
-        Object data="0";
+        Object data="1";
         //最好传LinkedHashMap，因为这可以按照插入顺序来执行
         Map<String,Map<String,Object>> params=new LinkedHashMap<>();
-        Object[] datas={"阿萨德"};
+
         Map map=new HashMap<String, Object[]>();
-        map.put("p_data",null);
-        params.put("CONTAIN",map);
+        map.put("p_data","2");
+        map.put("role","<=");
+        params.put("DIGIT_COMPARE",map);
 
 //        Map map=new HashMap<String, Object[]>();
 //        map.put("p_data","1");
