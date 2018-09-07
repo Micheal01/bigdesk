@@ -84,7 +84,7 @@ public class DigitCompareValiator implements IValidator {
                 }
                 break;
             case "=":
-                if(double_data==double_p_data)
+                if(double_data.equals(double_p_data))
                 {
                     return ValidatorResult.fail(String.format(errorMsg, "等于",p_data));
                 }
