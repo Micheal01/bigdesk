@@ -40,7 +40,7 @@ public class RoleConfig {
     //包含校验
     private static final IValidator CONTAIN_VALIDATOR=new ContainValiator(" 不在指定的值内！");
     //开始时间不能大于结束时间
-    private static final IValidator DATE_COMPARE_VALIATOR=new DateCompareValiator("不能大于结束时间！");
+    private static final IValidator DATE_COMPARE_VALIATOR=new DateCompareValiator("必须%s%s！");
     //排除性验证，输入值不能在规定的范围内（文本、日期）
     private static final IValidator EXCLUDE_VALIATOR=new ExcludeValiator("不在指定范围内！");
     //数值比较（数字类型比较，此值不能大于或者小于，输入的前一值）

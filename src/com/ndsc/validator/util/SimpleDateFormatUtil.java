@@ -66,5 +66,10 @@ public class SimpleDateFormatUtil {
         }
         return null;
     }
+    //转成时间格式
+    public static String dateToString(Date date)
+    {
+        return SIMPLE_DATE_FORMAT_1.format(date);
+    }
 
 }
