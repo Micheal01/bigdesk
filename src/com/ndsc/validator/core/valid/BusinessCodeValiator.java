@@ -63,14 +63,21 @@ public class BusinessCodeValiator implements IValidator {
         int cj = 0;
         int pj = 10;
         for (int i = 0; i < businessLicense.length(); i++) {
-            ti = Integer.parseInt(businessLicense.substring(i,i+1));
+            try {
+                ti = Integer.parseInt(businessLicense.substring(i, i + 1));
+            }catch (Exception e)
+            {
+                //有非字母存在，肯定格式错误
+                return false;
+            }
             si = pj + ti;
             cj = (0 == si % 10 ? 10 : si % 10) * 2;
             pj = (cj % 11) == 0 ? 10 : (cj % 11);
 
-            if (i == businessLicense.length()-1) {
-                return si % 10==1; // 返回1 表示是一个有效营业执照号
+            if (i == businessLicense.length() - 1) {
+                return si % 10 == 1; // 返回1 表示是一个有效营业执照号
             }
+
         }
         return false;
     }
