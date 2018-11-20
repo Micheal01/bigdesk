@@ -33,7 +33,11 @@ public class NotOverNowDateValidator implements IValidator {
         String systemDate= SimpleDateFormatUtil.dateToString(new Date());
         Date p_date=MyUtil.getDate(data);
         String pDate= SimpleDateFormatUtil.dateToString(p_date);
-        if(!systemDate.equals(pDate))
+
+        Date systemDate_new=MyUtil.getDate(systemDate);
+        Date pDate_new=MyUtil.getDate(pDate);
+
+        if(pDate_new.getTime()>systemDate_new.getTime())
         {
             return ValidatorResult.fail(errorMsg);
         }
