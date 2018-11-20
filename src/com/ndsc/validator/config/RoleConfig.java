@@ -49,6 +49,8 @@ public class RoleConfig {
     private static final IValidator INCLUDE_VALIATOR=new IncludeValiator("必须包含关键字！");
     //验证值长度只能在规定的范围；
     private static final IValidator LENGTH_VALIATOR=new LengthValiator("长度必须是在规定范围内(%s-%s)");
+    //验证值长度只能在规定的范围；
+    private static final IValidator NOT_OVER_NOW_DATE_VALIATOR=new NotOverNowDateValidator("不能大于当前日期！");
 
     //将校验算法封装，通过对应的规则进行校验
     //key=规则名
@@ -91,6 +93,9 @@ public class RoleConfig {
         ROLE_CONIG.put("INCLUDE",INCLUDE_VALIATOR);
         //验证值长度只能在规定的范围；
         ROLE_CONIG.put("LENGTH",LENGTH_VALIATOR);
+
+        //不能大于当前时间；
+        ROLE_CONIG.put("NOT_OVER_NOW_DATE",NOT_OVER_NOW_DATE_VALIATOR);
     }
 
     //获取对应的算法
