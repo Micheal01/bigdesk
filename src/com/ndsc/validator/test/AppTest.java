@@ -3,10 +3,9 @@ package com.ndsc.validator.test;
 import com.ndsc.validator.ValidatorResult;
 import com.ndsc.validator.ValidatorUtils;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author Michael
@@ -15,23 +14,13 @@ import java.util.Map;
 public class AppTest {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         //测试数值比较，此值不能大于或者小于，输入的前一值(DIGIT_COMPARE)
-        Object data="2018-11-21";
+        Object data="2018-1-a";
+
         //最好传LinkedHashMap，因为这可以按照插入顺序来执行
         Map<String,Map<String,Object>> params=new LinkedHashMap<>();
-
-//        Map map=new HashMap<String, Object[]>();
-//        map.put("p_data","2018-5-1");
-        //map.put("end","2018-5-3");
         params.put("NOT_OVER_NOW_DATE",null);
-
-//        Map map=new HashMap<String, Object[]>();
-//        map.put("p_data","1");
-//        map.put("role",">=");
-//        params.put("DIGIT_COMPARE",map);
-//
-//        params.put("TAX",null);
 
         try {
             ValidatorResult result = ValidatorUtils.checkError(data,params);
