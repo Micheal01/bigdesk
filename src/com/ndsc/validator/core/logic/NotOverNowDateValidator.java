@@ -30,8 +30,16 @@ public class NotOverNowDateValidator implements IValidator {
         if (MyUtil.IsEmpty(data)) {
             return ValidatorResult.exception("参数不能为空!");
         }
-        String systemDate= SimpleDateFormatUtil.dateToString(new Date());
+
+
         Date p_date=MyUtil.getDate(data);
+        if(p_date==null)
+        {
+            return ValidatorResult.exception("参数格式不对!");
+        }
+
+        String systemDate= SimpleDateFormatUtil.dateToString(new Date());
+
         String pDate= SimpleDateFormatUtil.dateToString(p_date);
 
         Date systemDate_new=MyUtil.getDate(systemDate);
