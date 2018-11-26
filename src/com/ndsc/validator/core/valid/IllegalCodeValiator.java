@@ -28,7 +28,7 @@ public class IllegalCodeValiator implements IValidator {
 
         //校验规则
         //只允许数字字母空格还有（逗号，句号，感叹号，分号,斜杠,冒号,方括号，小括号，大括号），其他都是非法的
-        String pattern = "[a-zA-Z0-9,。?!:/@;[]{}()\\s]*";
+        String pattern = "[`~#$%^&*+=|{}':'\\\\[\\\\].<>?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
 
         // 创建 Pattern 对象
         Pattern r = Pattern.compile(pattern);

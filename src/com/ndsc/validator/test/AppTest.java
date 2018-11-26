@@ -16,11 +16,14 @@ public class AppTest {
 
     public static void main(String[] args) throws ParseException {
         //测试数值比较，此值不能大于或者小于，输入的前一值(DIGIT_COMPARE)
-        Object data="2018-1-a";
+        Object data="5";
 
         //最好传LinkedHashMap，因为这可以按照插入顺序来执行
         Map<String,Map<String,Object>> params=new LinkedHashMap<>();
-        params.put("NOT_OVER_NOW_DATE",null);
+        Map p_data=new HashMap();
+        String[] p={"0","1","2","3"};
+        p_data.put("p_data",p);
+        params.put("CONTAIN",p_data   );
 
         try {
             ValidatorResult result = ValidatorUtils.checkError(data,params);
