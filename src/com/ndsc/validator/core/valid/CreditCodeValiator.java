@@ -26,6 +26,8 @@ public class CreditCodeValiator implements IValidator {
 
         if(data==null)return  ValidatorResult.success();
 
+        if("00000000000000000X".equals(data))return ValidatorResult.success();
+
         //校验规则
         String pattern = "[1-9A-GY]{1}[1239]{1}[1-5]{1}[0-9]{5}[0-9A-Z]{10}";
 

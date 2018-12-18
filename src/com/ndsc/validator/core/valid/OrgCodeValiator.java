@@ -27,7 +27,7 @@ public class OrgCodeValiator implements IValidator {
         if(data==null)return  ValidatorResult.success();
 
         //校验规则
-        String pattern = "[1-9A-GY]{1}[1239]{1}[1-5]{1}[0-9]{5}[0-9A-Z]{10}";
+        String pattern = "[a-zA-Z0-9]{8}-[a-zA-Z0-9]";
 
         // 创建 Pattern 对象
         Pattern r = Pattern.compile(pattern);

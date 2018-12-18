@@ -28,14 +28,12 @@ public class IllegalCodeValiator implements IValidator {
 
         //校验规则
         //只允许数字字母空格还有（逗号，句号，感叹号，分号,斜杠,冒号,方括号，小括号，大括号），其他都是非法的
-        String pattern = "[`~#$%^&*+=|{}':'\\\\[\\\\].<>?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
-
+        String pattern="[`~#$%^&*+=|{}':.\\\\/<>?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
         // 创建 Pattern 对象
         Pattern r = Pattern.compile(pattern);
 
         Matcher matcher = r.matcher(data.toString());
-        boolean isMatches = matcher.matches();
-        if(!isMatches)
+        if(matcher.find())
         {
             //匹配上说明有非法字符
             return ValidatorResult.fail(errorMsg);
